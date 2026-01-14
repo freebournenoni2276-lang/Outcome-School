@@ -1,0 +1,14 @@
+min = 60
+sec = 1
+
+value_1 = int(input("Enter Minutes: "))
+value_2 = int(input("Enter Seconds: "))
+
+x = value_1 * min
+y = value_2 * sec
+z = x + y
+print(z) 
+
+
+
+
