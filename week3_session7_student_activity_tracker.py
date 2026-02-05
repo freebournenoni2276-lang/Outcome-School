@@ -1,9 +1,9 @@
 print("Welcome to Outcome School Student Portal")
 
-# Stores the student name and student ID 
+# Stores the student name and student ID using a tuple
 student_info = ("John Doe", "53719")
 
-# Stores student details (course, year) 
+# Stores student details (course, year) using a dictionary 
 student_details = {"Course": "Python Foundations", "Year":"Freshman"}
 
 # Stores completed activities in a set
