@@ -21,14 +21,13 @@ print("Total items on shopping list: " + str(completed_shoppinglist))
 print("Checking shopping list ... ")
 
 for groceries in shopping_list:
-
- if len(groceries) < 1:
-    print(groceries + "  --> " + "Empty item found")
- elif   1 <=len(groceries) < 4:
-    print(groceries + "  --> " + "Short item")
- elif 4 <= len(groceries) < 8:
-    print(groceries + "  --> " + "Medium item")
- else:
-    print(groceries + "  -->" +"Long item")
+    if len(groceries) < 1:
+        print(groceries + "  --> " + "Empty item found")
+    elif 1 <= len(groceries) < 4:
+        print(groceries + "  --> " + "Short item")
+    elif 4 <= len(groceries) < 8:
+        print(groceries + "  --> " + "Medium item")
+    else:
+        print(groceries + "  -->" + "Long item")
 
 
