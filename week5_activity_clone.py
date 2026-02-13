@@ -1,9 +1,10 @@
 # Node class represents a single element (node) in a linked list
 class Node:
     def __init__(self, data):
-        self.data = data     
-        self.next = None      
+        self.data = data      # stores the SmartList object (student)
+        self.next = None      # pointer to the next node in the list (None if last)
 
+# LinkedList class manages the chain of nodes
 class LinkedList:
     def __init__(self):
         self.head = None      # first node in the linked list, starts empty
@@ -17,11 +18,12 @@ class LinkedList:
             self.head = new_node
             return
 
-        # Otherwise, move to the last node
+        # Otherwise, traverse to the last node
         current = self.head
         while current.next is not None:
             current = current.next
 
+        # Attach the new node at the end
         current.next = new_node
 
 # SmartList class represents a student with subjects and grades
@@ -49,18 +51,18 @@ students = LinkedList()
 
 # Loop to collect student data from user input
 while True:
-    name = input("Enter student name (or done): ") 
-    if name.lower() == "done":                     
+    name = input("Enter student name (or done): ")  # ask for student name
+    if name.lower() == "done":                      # exit loop if done
         break
     
     subjects = {}                                   # dictionary to store subject:grade
     for i in range(4):  # 4 subjects per student
-        subject = input("Enter subject name: ")   
-        grade = float(input("Enter grade: "))     
+        subject = input("Enter subject name: ")    # ask for subject name
+        grade = float(input("Enter grade: "))      # ask for grade and convert to float
         subjects[subject] = grade                  # store subject-grade in dictionary
 
     student_obj = SmartList(name, subjects)        # create a SmartList object for student
-    students.append(student_obj)                  
+    students.append(student_obj)                   # add student to linked list
 
 # Create an empty list to store student names and their averages
 avg_list = []
@@ -69,7 +71,7 @@ avg_list = []
 if len(avg_list) == 0:
     print("No students entered.")
 
-# Go through the linked list to get averages into a normal list
+# Traverse the linked list to extract averages into a normal list
 current = students.head
 while current is not None:
     student = current.data
@@ -85,4 +87,4 @@ for i in range(len(avg_list)):
 # Display the sorted student ranking
 print("\nStudent Ranking:")
 for student in avg_list:
-    print(student[0], "-", round(student[1],2))  # print name and average 
+    print(student[0], "-", round(student[1],2))  # print name and average (rounded to 2 decimals)
