@@ -27,41 +27,41 @@ Question_Storage = [
 
 random.shuffle(Question_Storage) #Shuffles the order of the questions on each attempt
 
-def check_answer(user,correct):
-    return user == correct
+def check_answer(user, correct_answer):
+    return user == correct_answer
 
-def ask_question(Question_Storage):
+def ask_question(question):
     max_attempts = 3
-    attempts_used = 0
+    attempts = 0
 
-    print("\n" + Question_Storage["Question"])
-    print(Question_Storage["Options"])
+    print("\n" + question["Question"])
+    print(question["Options"])
 
-    while attempts_used < max_attempts:
+    while attempts < max_attempts:
         user = input("Your answer: ").strip().upper()  # Prompts the user to enter an answer(strip removes space and upper converts the input to upper case)
 
         if user not in ["A","B","C","D"]:   #Accounts for invalid output
             print("Invalid input. Use A-D")
             continue
 
-        attempts_used += 1
+        attempts += 1
 
-        if check_answer(user,Question_Storage["Answer"]): #checks if answers are correct
+        if check_answer(user, question["Answer"]): #checks if answers are correct
             print("Correct!")
-            return True, attempts_used #correct, attempts used
+            return True, attempts #correct, attempts used
         
-        if attempts_used < max_attempts:
-            print(f"Incorrect! {max_attempts - attempts_used} tries left")
+        if attempts < max_attempts:
+            print(f"Incorrect! {max_attempts - attempts} tries left")
 
-    print(f"Out of tries! Correct answer was {Question_Storage['Answer']}")
-    return False, attempts_used #incorrect, used all attempts
+    print(f"Out of tries! Correct answer was {question['Answer']}")
+    return False, attempts #incorrect, used all attempts
  
-def show_results(total_score,total_questions,total_attempts): #Function to show the final results
+def show_results(correct_count, total_questions, attempts): #Function to show the final results
     print("\n===== FINAL RESULTS =====")
     print("Questions:", total_questions)
-    print("Correct:", total_score)
-    print("Attempts Used:", total_attempts)
-    print("Score %:", round((total_score/total_questions)*100, 2))
+    print("Correct:", correct_count)
+    print("Attempts Used:", attempts)
+    print("Score %:", round((correct_count/total_questions)*100, 2))
   
         
 total_score = 0
