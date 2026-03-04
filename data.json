@@ -1,0 +1,9 @@
+{
+    "name": "Noni",
+    "age": 19,
+    "skills": [
+        "Math",
+        "Python"
+    ],
+    "is_stundent": true
+}
