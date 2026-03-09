@@ -1,5 +1,6 @@
-import pandas as pd
 import os
+import pandas as pd
+
 
 # To find csv file location
 print(os.getcwd())
@@ -57,43 +58,43 @@ class DataProject:
             print(self.grouped_data)
 
 class Node:
-        def __init__(self,data): 
-           self.data = data    # Stores the value inside the node
-           self.next = None    # Pointer to the next node
+    def __init__(self,data): 
+        self.data = data    # Stores the value inside the node
+        self.next = None    # Pointer to the next node
 
 class CircularLinkedList:
-        def __init__(self):
-           self.head = None
+    def __init__(self):
+        self.head = None
         
-        def insert_begin(self, data):
-            new_node = Node(data) # Create a new node with the given data
+    def insert_begin(self, data):
+        new_node = Node(data) # Create a new node with the given data
            
             # Case 1: Empty list
             # make the new node point to itself to form a circular structure
-            if self.head is None:
-                new_node.next = new_node
-                self.head = new_node
+        if self.head is None:
+            new_node.next = new_node
+            self.head = new_node
 
              # Case 2: List has nodes
              # find the last node (the one whose next points to head)    
-            else:
-                temp = self.head
+        else:
+            temp = self.head
 
-                while temp.next != self.head:
-                  temp = temp.next
+            while temp.next != self.head:
+                temp = temp.next
             
                 # Link last node to new node
-                temp.next = new_node
+            temp.next = new_node
 
                 # Make new node point to old head
-                new_node.next = self.head
+            new_node.next = self.head
 
                 # Update head to the new node
-                self.head = new_node
+            self.head = new_node
 
         
 # Create data
-d_project = {
+data_project = {
     "Name": ["Abby","Ben","Conner","Daisy","Eric","Fay","Gabrielle","Henry"],
     "Age": [18, 20, 23, 19, 24, 21, 22, 17],
     "Course": ["Computer Science","Mathematics","Business Administration",
@@ -102,7 +103,7 @@ d_project = {
 }
 
 # Create instance and call methods
-project = DataProject(d_project)
+project = DataProject(data_project)
 
 project.load_data()
 project.clean_data()
