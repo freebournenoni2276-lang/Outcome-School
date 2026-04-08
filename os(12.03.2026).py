@@ -13,6 +13,17 @@ fig = px.bar(df, x="product", y="sales",
 
 fig.show()
 
+#Line Chart (Trend Visualization)
+# fig = px.line(
+#     df,
+#     x="product",
+#     y="sales",
+#     title="Sales Trend by Product",
+#     markers=True
+# )
+
+# fig.show()
+
 # Task (10–15 min)
 #  Use Plotly to explore and visualize a simple dataset.
 # 📊 Create a Dataset
