@@ -455,6 +455,7 @@ def export_reports():
 
 def main_menu():
     while True:
+        print("\n============ EDUTRACK ===============")
         print("\n===== STUDENT MANAGEMENT SYSTEM =====")
         print("1. Search Student Report")
         print("2. Add New Student")
